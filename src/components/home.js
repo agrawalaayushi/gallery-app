@@ -9,11 +9,14 @@ import '../styles/app.scss';
 
 class Home extends Component {
 
-  simpleAction(event){
+  simpleAction(event) {
+    debugger
     this.props.simpleAction();
    }
 
   render() {
+    const { simpleActionResponse } = this.props;
+    debugger
     return (
       <div className="App">
         <header className="App-header">
@@ -26,7 +29,7 @@ class Home extends Component {
         <button onClick={(e) => this.simpleAction(e)}>Test redux action</button>
         <pre>
           {
-            JSON.stringify(this.props)
+            simpleActionResponse && JSON.stringify(this.props)
           }
         </pre>
       </div>
@@ -34,9 +37,11 @@ class Home extends Component {
   }
 }
 
+
 const mapStateToProps = state => ({
-  ...state
- })
+  ...state,
+  simpleActionResponse: state.reducer.get("simpleActionResponse")
+})
 
  const mapDispatchToProps = dispatch => ({
   simpleAction: () => dispatch(simpleAction())
