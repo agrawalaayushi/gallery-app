@@ -12,11 +12,12 @@ const reducer = (state = initialState, action) => {
   }
 
   switch (action.type) {
-    case ActionTypes.SIMPLE_ACTION: {
-      debugger
-      state = state.set('simpleActionResponse', action.payload);
+
+    case ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE: {
+      state = state.set('imageListResponse', action.response.imageListResponse);
       return state;
     }
+
     default:
       return state
   }

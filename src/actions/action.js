@@ -1,9 +1,26 @@
 import ActionTypes from '../constants/action-type';
+import {
+  getImageList
+} from '../utils/app-api-utils';
 
 export const simpleAction = () => dispatch => {
-  debugger
   dispatch({
-   type: ActionTypes.SIMPLE_ACTION,
+   type: 'SIMPLE_ACTION',
    payload: 'result_of_simple_action'
   })
  }
+
+// GET IMAGE LIST
+export function requestImageList(params) {
+  return(dispatch)=>{
+    getImageList(dispatch, params);
+  }
+};
+
+export function receiveImageListResponse(response) {
+  response.imageListResponse = response;
+  return{
+    type: ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE,
+    response
+  }
+};

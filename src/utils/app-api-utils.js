@@ -1,50 +1,23 @@
 import axios from 'axios';
 import {
-  receiveUpcomingMoviesResponse, receiveSearchByKeywordResponse, receiveMovieDetailsResponse
+  receiveImageListResponse
 } from '../actions/action';
 
-const API_KEY = '0131c79337ac4dc9ed8a36d0e932c1ea';
-const API_URL = 'https://api.themoviedb.org/3';
-
-// GET UPCOMING MOVIES
-export function getUpcomingMovies(dispatch, params) {
-  let url = `${API_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`;
+// const API_KEY = 'd0ee4be53c1f50b44fec5320332436f9';
+// const GROUP_ID= 'group_id=2309748%40N20';
+// const RESPONSE_FORMAT = 'json';
+// const API_URL = 'https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&';
+// GET IMAGE LIST
+export function getImageList(dispatch, params) {
+  const url = 'https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=d0ee4be53c1f50b44fec5320332436f9&group_id=2309748%40N20&format=json&nojsoncallback=1'
+  // const url = `api_key=${API_KEY}&${GROUP_ID}&format=${RESPONSE_FORMAT}&nojsoncallback=1`;
   axios.get(url)
   .then(response => {
     const successResponse = response.data;
-    dispatch(receiveUpcomingMoviesResponse(successResponse));
+    dispatch(receiveImageListResponse(successResponse));
   })
   .catch(error => {
     const errorResponse = error;
-    dispatch(receiveUpcomingMoviesResponse(errorResponse));
-  });
-};
-
-
-// GET SEARCH RESULT BY KEYWORD
-export function getSearchResultByKeyword(dispatch, params) {
-  let url = `${API_URL}/search/keyword?api_key=${API_KEY}&query=${params}&page=1`;
-  axios.get(url)
-  .then(response => {
-    const successResponse = response.data;
-    dispatch(receiveSearchByKeywordResponse(successResponse));
-  })
-  .catch(error => {
-    const errorResponse = error;
-    dispatch(receiveSearchByKeywordResponse(errorResponse));
-  });
-};
-
-// GET MOVIE DETAILS
-export function getMovieDetails(dispatch, params) {
-  let url = `${API_URL}/movie/${params.movieId}?api_key=${API_KEY}&language=en-US`;
-  axios.get(url)
-  .then(response => {
-    const successResponse = response.data;
-    dispatch(receiveMovieDetailsResponse(successResponse));
-  })
-  .catch(error => {
-    const errorResponse = error;
-    dispatch(receiveMovieDetailsResponse(errorResponse));
+    dispatch(receiveImageListResponse(errorResponse));
   });
 };
