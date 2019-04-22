@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { requestImageList } from '../../actions/action';
 import ImageCardView from '../common/image-card-view';
 import { Loader } from '../common/loader-view/loader-view';
+import '../../styles/app.scss';
 
 class ImageList extends Component {
   constructor(props) {

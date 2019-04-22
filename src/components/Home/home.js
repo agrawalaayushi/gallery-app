@@ -1,8 +1,8 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
-import { Header } from '../Header/header';
-import Login  from '../Login/login';
 import { Loader } from '../common/loader-view/loader-view';
+import  Header from '../Header/header';
+import Login  from '../Login/login';
 import ImageList from '../Gallery/image-list';
 import '../../styles/app.scss';
 
@@ -12,8 +12,10 @@ class Home extends Component {
     this.state = {
       currentUsername: '',
       isLoader: false,
-      isUsernameSubmitted: true
+      isUserLoggedIn: false,
     }
+    this.logout = this.logout.bind(this);
+
   }
 
   //-----------------------------------
@@ -29,31 +31,55 @@ class Home extends Component {
       this.setState({
         currentUsername: user.email,
         password: user.password,
-        isUsernameSubmitted: true,
+        isUserLoggedIn: true,
         isLoader: false
       })
+  }
+
+  logout() {
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    this.setState({
+      currentUsername: '',
+      password:'',
+      isUserLoggedIn: false,
+      isLoader: false
+    })
   }
 
   getLoaderView() {
     return <Loader/>
   }
-
+ 
   //-----------------------------------
   // Lifecycle
   //-----------------------------------
 
-  render() {
-    const { isLoader, isUsernameSubmitted } = this.state;
+  componentDidMount() {
+    let email = localStorage.getItem('email');
+    let password = localStorage.getItem('password');
+    if (email && password) {
+      this.setState({
+        currentUsername: email,
+        password: password,
+        isUserLoggedIn: true,
+        isLoader: false
+      })
+    }
+  }
 
+
+  render() {
+    const { isLoader, isUserLoggedIn } = this.state;
     return (
       <div className="gallery-home-view">
-        <Header />
+        <Header submitLogoutCallback = {() => this.logout()}  isUserLoggedIn={isUserLoggedIn}/>
         {isLoader && this.getLoaderView()}
-        {!isUsernameSubmitted ?
+        {!isUserLoggedIn ?
           <Login
           submitUserNameCallback = {(loginDetails) => this.submitLoginCredential(loginDetails)}/>
           :
-          <ImageList {...this.props} />
+          <ImageList />
         }
       </div>
     );

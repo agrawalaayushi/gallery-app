@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-    case ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE: {
+    case ActionTypes.RECEIVE_IMAGE_LIST_RESPONSE: {
       state = state.set('imageListResponse', action.response.imageListResponse);
       return state;
     }

@@ -17,6 +17,11 @@
     text-shadow: 1.5px 2.6px 5px rgba(40, 40, 74, 0.2);
     margin: auto;
     color: white; }
+  .header-view .logout-btn {
+    color: white;
+    position: absolute;
+    top: 26px;
+    right: 19px; }
 
 .content-heading {
   padding-left: 20px; }
@@ -96,3 +101,5 @@
       display: inline-block;
       margin: 0 0 1em;
       width: 100%; }
+    .image-masonry-container .masonry-pattern .image:active {
+      border: 1px solid red; }

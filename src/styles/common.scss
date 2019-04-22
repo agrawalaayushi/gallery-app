@@ -20,6 +20,12 @@
     margin: auto;
     color: white;
   }
+  .logout-btn {
+    color: white;
+    position: absolute;
+    top: 26px;
+    right: 19px;
+  }
 }
 
 .content-heading {
@@ -114,5 +120,8 @@
       margin: 0 0 1em;
       width: 100%;
     }
-  }
+    .image:active {
+      border: 1px solid red;
+    }
+  } 
 }

@@ -1,6 +1,0 @@
-@mixin multiLineEllipsis($width) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: $width;
-  white-space: nowrap;
-}

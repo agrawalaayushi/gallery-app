@@ -20,7 +20,7 @@ export function requestImageList(params) {
 export function receiveImageListResponse(response) {
   response.imageListResponse = response;
   return{
-    type: ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE,
+    type: ActionTypes.RECEIVE_IMAGE_LIST_RESPONSE,
     response
   }
 };

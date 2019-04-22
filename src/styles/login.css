@@ -1,29 +1,38 @@
 .login-container {
+  height: 80vh;
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
   .login-container .username-wrapper {
     margin-top: 50px; }
-    .login-container .username-wrapper .username {
+    .login-container .username-wrapper .label-wrp .label {
+      display: block;
+      margin: 10px 0;
+      font-size: 19px;
+      font-weight: 500; }
+    .login-container .username-wrapper .label-wrp .username {
       position: relative;
-      height: 2.5rem;
       font-size: 1rem;
       background-color: white;
       padding: 0px 1rem;
-      border-width: 1px;
-      border-color: transparent;
       border-radius: 2px;
-      margin: 20px; }
-    .login-container .username-wrapper .btn-wrapper .submit-btn {
-      color: #300d4f;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      display: flex;
-      line-height: 2.25rem;
-      background-color: #e9edf6;
-      padding: 0px 1.125rem;
-      margin: auto;
-      border-radius: 3px;
-      border-style: solid;
-      border-color: #e9edf6; }
+      width: 250px;
+      height: 30px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid black; }
+    .login-container .username-wrapper .btn-wrapper {
+      margin-top: 20px; }
+      .login-container .username-wrapper .btn-wrapper .submit-btn {
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: flex;
+        line-height: 2.25rem;
+        background-color: #002642;
+        padding: 0px 1.125rem;
+        margin: auto;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: #e9edf6; }
