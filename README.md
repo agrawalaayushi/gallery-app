@@ -2,7 +2,7 @@
 # Gallery App: Source Flickr
 
 ### Requirement
-Make sure you have these Node(\^8.11.1), npm(v5.6.0) and yarn(\^1.6.0) are essential to run this project.
+Make sure you have these Node(\^10.15.3), npm(v6.4.1) and yarn(\^1.15.2) are essential to run this project.
 
 ### Development
 
